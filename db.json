@@ -6,6 +6,49 @@
       "name": "Kenzinho",
       "age": 38,
       "id": 1
+    },
+    {
+      "email": "lucas@mail.com",
+      "password": "$2a$10$X5q.hfh.Mjx.alYGv98oRO.x.E/NxmvBToIxaRiCO2eN2JC4luCXO",
+      "name": "Lucas",
+      "age": 29,
+      "id": 2
+    }
+  ],
+  "posts": [
+    {
+      "image": "urlImage",
+      "comments": [],
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "image": "urlImage",
+      "comments": [],
+      "userId": 1,
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "comment": "teste",
+      "postsId": 1,
+      "id": 1
+    },
+    {
+      "comment": "teste2",
+      "postsId": 2,
+      "id": 2
+    },
+    {
+      "comment": "teste3",
+      "postsId": 2,
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "comment": "teste4",
+      "id": 4
     }
   ]
 }
