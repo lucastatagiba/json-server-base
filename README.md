@@ -4,7 +4,7 @@ Nessa aplicação o usuário pode se cadastrar, fazer login, publicar um post e 
 
 ## Cadastro:
 
-https://json-server-lucas-tatagiba.herokuapp.com/register --> Para se cadastrar deve se utilizar este endpoint com o seguinte corpo:
+https://json-server-lucas-tatagiba.herokuapp.com/register --> Para se cadastrar deve se utilizar este endpoint com o seguinte corpo(POST):
 
 ```json
 {
@@ -31,7 +31,7 @@ Exemplo de sucesso da resposta da requisição cadastro (201 Created):
 
 ## Login:
 
-https://json-server-lucas-tatagiba.herokuapp.com/login --> Para se logar o usuário deve utilizar este endpoint com o seguinte corpo:
+https://json-server-lucas-tatagiba.herokuapp.com/login --> Para se logar o usuário deve utilizar este endpoint com o seguinte corpo(POST):
 
 ```json
 {
@@ -56,7 +56,7 @@ Exemplo de sucesso da resposta da requisição login (201 Created):
 
 ## Posts:
 
-https://json-server-lucas-tatagiba.herokuapp.com/posts --> Para postar alguma coisa o usuário deverá está logado e deverá ser dono da conta que irá postar, para isso ao logar-se, deverá utilizar seu token de acesso gerado e utilizar no Bearer no header do posts e também utilizar a propriedade userId com o id de seu usuário no corpo da requisição. O corpo da requisição deverá estar com este formato:
+https://json-server-lucas-tatagiba.herokuapp.com/posts --> Para postar alguma coisa o usuário deverá está logado e deverá ser dono da conta que irá postar, para isso ao logar-se, deverá utilizar seu token de acesso gerado e utilizar no Bearer no header do posts e também utilizar a propriedade userId com o id de seu usuário no corpo da requisição. O corpo da requisição deverá estar com este formato(POST):
 
 ```json
 {
@@ -79,7 +79,7 @@ Exemplo de sucesso da resposta da requisição posts (201 Created):
 
 ## comments:
 
-https://json-server-lucas-tatagiba.herokuapp.com/comments --> Nesse endpoint o usuário pode adicionar comentários, para isso o usuário deverá estar logado apenas. Não sendo necessário o uso de algum ID, Exemplo de corpo de requisição:
+https://json-server-lucas-tatagiba.herokuapp.com/comments --> Nesse endpoint o usuário pode adicionar comentários, para isso o usuário deverá estar logado apenas. Não sendo necessário o uso de algum ID, Exemplo de corpo de requisição(POST):
 
 ```json
 {
@@ -95,3 +95,5 @@ Exemplo de sucesso da resposta da requisição comments (201 Created):
   "id": 1
 }
 ```
+## Endpoints GET para ler os dados:
+Só é permitido ler os dados das requisições dos posts e comments. Sendo assim, não é possivel visualizar os usuários.
