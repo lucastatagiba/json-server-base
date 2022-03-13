@@ -1,24 +1,97 @@
 # json-server-base
 
-Esse é o repositório com a base de JSON-Server + JSON-Server-Auth já configurada, feita para ser usada no desenvolvimento das API's nos Capstones do Q2.
+Nessa aplicação o usuário pode se cadastrar, fazer login, publicar um post e um comentário.
 
-## Endpoints
+## Cadastro:
 
-Assim como a documentação do JSON-Server-Auth traz (https://www.npmjs.com/package/json-server-auth), existem 3 endpoints que podem ser utilizados para cadastro e 2 endpoints que podem ser usados para login.
+https://json-server-lucas-tatagiba.herokuapp.com/register --> Para se cadastrar deve se utilizar este endpoint com o seguinte corpo:
 
-### Cadastro
+```json
+{
+  "email": "email@email.com",
+  "password": "suaSenha",
+  "name": "seuNome",
+  "age": 29
+}
+```
 
-POST /register <br/>
-POST /signup <br/>
-POST /users
+Exemplo de sucesso da resposta da requisição cadastro (201 Created):
 
-Qualquer um desses 3 endpoints irá cadastrar o usuário na lista de "Users", sendo que os campos obrigatórios são os de email e password.
-Você pode ficar a vontade para adicionar qualquer outra propriedade no corpo do cadastro dos usuários.
+```json
+{
+  "accessToken": "seu token",
+  "user": {
+    "email": "email@email.com",
+    "name": "seuNome",
+    "age": 29,
+    "id": 1
+  }
+}
+```
 
+## Login:
 
-### Login
+https://json-server-lucas-tatagiba.herokuapp.com/login --> Para se logar o usuário deve utilizar este endpoint com o seguinte corpo:
 
-POST /login <br/>
-POST /signin
+```json
+{
+  "email": "email@email.com",
+  "password": "suaSenha"
+}
+```
 
-Qualquer um desses 2 endpoints pode ser usado para realizar login com um dos usuários cadastrados na lista de "Users"
+Exemplo de sucesso da resposta da requisição login (201 Created):
+
+```json
+{
+  "accessToken": "seu Token",
+  "user": {
+    "email": "email@email.com",
+    "name": "seuNome",
+    "age": 29,
+    "id": 1
+  }
+}
+```
+
+## Posts:
+
+https://json-server-lucas-tatagiba.herokuapp.com/posts --> Para postar alguma coisa o usuário deverá está logado e deverá ser dono da conta que irá postar, para isso ao logar-se, deverá utilizar seu token de acesso gerado e utilizar no Bearer no header do posts e também utilizar a propriedade userId com o id de seu usuário no corpo da requisição. O corpo da requisição deverá estar com este formato:
+
+```json
+{
+  "image": "urlImage",
+  "comments": [],
+  "userId": 1
+}
+```
+
+Exemplo de sucesso da resposta da requisição posts (201 Created):
+
+```json
+{
+  "image": "urlImage",
+  "comments": [],
+  "userId": 1,
+  "id": 1
+}
+```
+
+## comments:
+
+https://json-server-lucas-tatagiba.herokuapp.com/comments --> Nesse endpoint o usuário pode adicionar comentários, para isso o usuário deverá estar logado apenas. Não sendo necessário o uso de algum ID, Exemplo de corpo de requisição:
+
+```json
+{
+  "comment": "teste"
+}
+```
+
+Exemplo de sucesso da resposta da requisição comments (201 Created):
+
+```json
+{
+  "comment": "teste",
+  "id": 1
+}
+```
